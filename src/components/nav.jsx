@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 function Nav() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
+      <nav className="navbar navbar-expand-lg bg-dark-subtle">
+       <div className="container-fluid">
           <img className='logo' src="src/assets/logo.webp"alt="Logo"/>
+          <h2 className='Nav-title'>Remedies</h2>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -25,7 +26,7 @@ function Nav() {
                 <Link className="nav-link" to="/contact">Contact Us</Link>
               </li>
             </ul>
-            <form className="d-flex search"  role="search">
+            <form className="d-flex  search"  role="search">
               <input className="form-control me-3" type="search" placeholder="Search Remedies" aria-label="Search" />
               <button className="btn btn-outline-success" type="submit">Search</button>
               <button className="btn btn-outline-success mx-2" type="button"><Link className='btn-outline-success' to="/login">Login</Link></button>

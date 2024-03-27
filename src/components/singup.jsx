@@ -20,7 +20,7 @@ const RegistrationForm = () => {
     }, []);
 
  return (
-        <div className="container">
+        <div className="sing-container">
             <h1>User Registration</h1>
             <form action="singup.jsx" method="POST">
                 <div className="form-group">
