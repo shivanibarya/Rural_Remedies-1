@@ -13,7 +13,7 @@ function login() {
     <button className="login-button" id="login-button" type='submit'>Login</button>
     <div className="singup-section">
       <p>New user </p>
-      <a href="singup">singup</a>
+      <a href="singup">SignUp</a>
     </div>
    
    </form>
