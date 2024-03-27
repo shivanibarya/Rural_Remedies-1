@@ -1,5 +1,5 @@
 import React from 'react'
-import singup from './singup'
+import singup from './signup'
 function login() {
   return (
    <>
@@ -13,10 +13,10 @@ function login() {
     <button className="login-button" id="login-button" type='submit'>Login</button>
     <div className="singup-section">
       <p>New user </p>
-      <a href="singup">SignUp</a>
+      <a href="signup">SignUp</a>
     </div>
    
-   </form>
+  </form>
 
 </div>
    </>
