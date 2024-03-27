@@ -2,7 +2,7 @@ import React from 'react'
 
 function yash() {
   return (
-    <div>yash</div>
+    <div>yash yr tu,</div>
   )
 }
 
