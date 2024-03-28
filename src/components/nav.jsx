@@ -30,6 +30,7 @@ function Nav() {
               <input className="form-control me-3" type="search" placeholder="Search Remedies" aria-label="Search" />
               <button className="btn btn-outline-success" type="submit">Search</button>
               <button className="btn btn-outline-success mx-2" type="button"><Link className='btn-outline-success' to="/login">Login</Link></button>
+              <button className="btn btn-outline-success mx-2" type="button"><Link className='btn-outline-success' to="/signup">signUP</Link></button>
 
              </form>
           </div>

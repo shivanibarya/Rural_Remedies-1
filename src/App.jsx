@@ -9,7 +9,7 @@ import Contact from './components/Contact'
 import Login from './components/login'
 import Home from './components/Home'
 import Footer from './components/Footer';
-import Singup from './components/singup'
+import Singup from './components/signup';
 function App() {
 
   return (
@@ -23,7 +23,7 @@ function App() {
         <Route path="/Remedies" element={<Remedies/>} />
         <Route path="/Contact" element={<Contact/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path="/singup" element={<Singup/>} />
+        <Route path="/signup" element={<Singup/>} />
        
       </Routes>
       <Footer/>
