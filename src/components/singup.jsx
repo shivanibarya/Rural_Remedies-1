@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const RegistrationForm = () => {
-  const [User, setUser] = useState({
+  const [User, setUser] = useState({   
     name: "",
     email: "",
     contact: "",
