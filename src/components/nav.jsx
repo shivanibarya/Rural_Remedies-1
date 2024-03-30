@@ -69,13 +69,13 @@ function Nav() {
               </button>
 
               {isLoggedIn ? (
-                <p
+                <button
                   className="mx-2 h-25"
                   type="button"
                   onClick={handleLogout} // Add onClick handler for logout button
                 >
                   Logout
-                </p>
+                </button>
               ) : (
                 <>
                   <p className="mx-2 my-0 " type="button">
