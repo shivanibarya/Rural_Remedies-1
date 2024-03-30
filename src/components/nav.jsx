@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../store/auth";
 
 function Nav() {
+  const { isLoggedIn, logoutUser } = useAuth(); // Destructure the logoutUser function from the useAuth hook
+
+  const handleLogout = () => {
+    logoutUser(); // Call the logoutUser function when the logout button is clicked
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-dark-subtle">
@@ -51,21 +58,29 @@ function Nav() {
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
-              <button className="btn btn-outline-success mx-2" type="button">
-                <Link className="btn-outline-success" to="/login">
-                  Login
-                </Link>
-              </button>
-              <button className="btn btn-outline-success mx-2" type="button">
-                <Link className="btn-outline-success" to="/signup">
-                  sign-up
-                </Link>
-              </button>
-              {/* <button className="btn btn-outline-success mx-2" type="button">
-                <Link className="btn-outline-success" to="/logout">
-                  logout
-                </Link>
-              </button> */}
+
+              {isLoggedIn ? (
+                <button
+                  className="btn btn-outline-success mx-2"
+                  type="button"
+                  onClick={handleLogout} // Add onClick handler for logout button
+                >
+                  Logout
+                </button>
+              ) : (
+                <>
+                  <button className="btn btn-outline-success mx-2" type="button">
+                    <Link className="btn-outline-success" to="/login">
+                      Login
+                    </Link>
+                  </button>
+                  <button className="btn btn-outline-success mx-2" type="button">
+                    <Link className="btn-outline-success" to="/signup">
+                      Sign Up
+                    </Link>
+                  </button>
+                </>
+              )}
             </form>
           </div>
         </div>

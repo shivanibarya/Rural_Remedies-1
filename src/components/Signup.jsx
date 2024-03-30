@@ -48,7 +48,7 @@ const RegistrationForm = () => {
   }, []);
 
   const navigate = useNavigate(); //konse page par navigaet karvana hai
-  const {storetokenInLS} = useAuth
+  const { storeTokenInLS } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -66,8 +66,7 @@ const RegistrationForm = () => {
         const res_data = await response.json();
         console.log("this is data", res_data);
 
-
-        storetokenInLS(res_data.token);
+        storeTokenInLS(res_data.token);
         // localStorage.setItem("token", res_data.token);
         setUser({
           name: "",
