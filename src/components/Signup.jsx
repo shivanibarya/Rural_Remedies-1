@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../store/auth";
 
 const RegistrationForm = () => {
-  const [User, setUser] = useState({   
+  const [User, setUser] = useState({
     name: "",
     email: "",
     contact: "",
@@ -13,7 +15,14 @@ const RegistrationForm = () => {
   const handleInput = (e) => {
     console.log(e);
     const name = e.target.name;
-    const value = e.target.value;
+    let value = e.target.value;
+    if (name === "contact") {
+      value = value.trim();
+      if (value !== "") {
+        value = parseInt(value);
+      }
+    }
+
     setUser({
       ...User,
       [name]: value,
@@ -38,9 +47,42 @@ const RegistrationForm = () => {
     }
   }, []);
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate(); //konse page par navigaet karvana hai
+  const {storetokenInLS} = useAuth
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(User)
+    console.log(User);
+    try {
+      const response = await fetch(`http://localhost:3000/user/signup`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(User),
+      });
+
+      if (response.ok) {
+        const res_data = await response.json();
+        console.log("this is data", res_data);
+
+
+        storetokenInLS(res_data.token);
+        // localStorage.setItem("token", res_data.token);
+        setUser({
+          name: "",
+          email: "",
+          contact: "",
+          password: "",
+          isDoctor: false,
+          speciality: "",
+        });
+        navigate("/login"); //submit hone ke baad yaha navigate ho gaya
+      }
+      console.log(response);
+    } catch (error) {
+      console.log("register", error);
+    }
   };
 
   return (
@@ -76,7 +118,7 @@ const RegistrationForm = () => {
         <div className="form-group">
           <label htmlFor="contact">Contact*</label>
           <input
-            type="text"
+            type="number"
             id="contact"
             name="contact"
             required
