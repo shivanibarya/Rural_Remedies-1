@@ -17,6 +17,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    margin-right: 25px;
 }
 .main {
     display: flex;
@@ -34,7 +35,45 @@
 .btn {
     width: 150px;
 } 
+/* .nav-sty {
+    width: 50px;
+    height: 2px;
+   
+    
+}
+.nav-item:hover .nav-sty {
+    background-color: yellow;
+    transition: 1s;
+} */
 
+.nav-link {
+    position: relative; /* Add position relative to the nav-link */
+  }
+  
+  .nav-link::after {
+    content: "";
+    width: 0px;
+    height: 2px;
+    background-color: #faca22;
+    position: absolute;
+    left: 0;
+    bottom: 6px; /* Adjust position to be just below the link */
+    transition: width 0.5s ease; /* Changed transition property */
+  }
+  
+  .nav-link:hover::after {
+    width: 100%; /* Change the width to fill the container */
+  }
+  
+  .search-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 80px;
+    overflow: hidden;
+  }
+   
 /* login page css start */ 
 
 .Log{
@@ -114,13 +153,23 @@
             padding: 0;
         }
 
-        .sing-container {
-            max-width: 600px;
-            margin: 20px auto;
-            background-color: #fff;
+        .sign-main {
+           display: flex;
+           justify-content: center;
+           width: 100vw;
+           height: 100vh;  
+           background-image: url("../src/assets/sign-background.jpg");
+           padding: 20px;
+        }
+
+        .sign-container {
+            width: 40%;
+            height: 100%;
+            background-color: #324e6951;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 5px 5px 5px;
         }
 
         h1 {
@@ -138,10 +187,11 @@
         input[type="password"],
         select {
             width: 100%;
-            padding: 8px;
+            padding: 2px;
             margin-bottom: 10px;
-            border: 1px solid #ccc;
+            border: none;
             border-radius: 5px;
+            background-color: #333;
         }
 
         input[type="submit"] {
@@ -152,7 +202,13 @@
             border-radius: 5px;
             cursor: pointer;
         }
-
+        label {
+            color: white;
+        }
+        .contact-input {
+           background-color: #333;
+           border: none;
+        }
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
@@ -200,13 +256,17 @@
        margin-right: 65px;
     }
 
-    .sing-container {
+    .sign-container {
         width: 90vw;
+        height: 90vh;
         margin: 20px auto;
-        background-color: #fff;
+        background-color: transparent;
         padding: 20px;
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-toggler {
+        background-color: white;
     }
     
   }

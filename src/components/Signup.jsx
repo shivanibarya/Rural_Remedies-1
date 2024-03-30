@@ -85,8 +85,10 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className="container">
-      <h1>User Registration</h1>
+<div className="sign-main">
+
+    <div className="sign-container">
+      <h1 className="text-white">User Registration</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name*</label>
@@ -116,7 +118,7 @@ const RegistrationForm = () => {
 
         <div className="form-group">
           <label htmlFor="contact">Contact*</label>
-          <input
+          <input className="contact-input"
             type="number"
             id="contact"
             name="contact"
@@ -171,6 +173,7 @@ const RegistrationForm = () => {
         <input type="submit" value="Register" />
       </form>
     </div>
+</div>
   );
 };
 
