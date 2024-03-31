@@ -5,13 +5,13 @@ import Insta from "../assets/insta.png";
 import Twit from "../assets/twitter.png";
 function Footer() {
   return (
-    <footer className='bg-dark-subtle' id="footer">
+    <footer  id="footer">
       
        <div id="footer-row">
 
           <div id="about" className="col-lg-4 col-md-6 col-sm">
             <h3>About Rural-Remedies</h3>
-            <p>Rural Remedies is dedicated to providing <br/> natural remedies for rural communities.</p>
+            <p className='text-white'>Rural Remedies is dedicated to providing <br/> natural remedies for rural communities.</p>
             <ul className="list-unstyled">
               <li><a href="#">Work With Us</a></li>
               <li><a href="#">Report Fraud</a></li>
@@ -29,7 +29,7 @@ function Footer() {
               <li><a href="#">Terms And Conditions</a></li>
               <li><a href="#">Collaboration</a></li>
             </ul>
-            <p>Have questions or need assistance? <a href="#">Contact us</a>.</p>
+            <p className='text-white'>Have questions or need assistance? <a href="#">Contact us</a>.</p>
           </div>
 
           <div id="connect" className="col-lg-4 col-md-6 col-sm-12">
@@ -51,7 +51,7 @@ function Footer() {
         <div id="footer-row-bottom" className="row">
           <div id="footer-bottom" className="col-md-12">
             <hr />
-            <p className="text-center">&copy; {new Date().getFullYear()} By continuing past this page, you agree to our <a href="#">Terms of Service</a>, <a href="#">Cookie Policy</a>, <a href="#">Privacy Policy</a>, and <a href="#">Content Policies</a>. All trademarks are properties of their respective owners. © Rural-Remedies™ Ltd. All rights reserved</p>
+            <p className="text-center text-white">&copy; {new Date().getFullYear()} By continuing past this page, you agree to our <a href="#">Terms of Service</a>, <a href="#">Cookie Policy</a>, <a href="#">Privacy Policy</a>, and <a href="#">Content Policies</a>. All trademarks are properties of their respective owners. © Rural-Remedies™ Ltd. All rights reserved</p>
           </div>
         </div>
     

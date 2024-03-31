@@ -10,7 +10,7 @@ function Nav() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-dark">
+      <nav className="navbar navbar-expand-lg nav-bg">
         <div className="container-fluid">
           <img className="logo" src="src/assets/logo.webp" alt="Logo" />
           <h2 className="Nav-title">Remedies</h2>
@@ -69,13 +69,13 @@ function Nav() {
               </button>
 
               {isLoggedIn ? (
-                <p
-                  className="mx-2 h-25"
+                <button
+                  className="mx-2 h-25 "
                   type="button"
                   onClick={handleLogout} // Add onClick handler for logout button
                 >
                   Logout
-                </p>
+                </button>
               ) : (
                 <>
                   <p className="mx-2 my-0 " type="button">
