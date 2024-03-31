@@ -49,7 +49,9 @@
 .nav-link {
     position: relative; /* Add position relative to the nav-link */
   }
-  
+  .nav-bg {
+    background-color: black;
+  }
   .nav-link::after {
     content: "";
     width: 0px;
