@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -8,7 +10,7 @@ const Login = () => {
     password: "",
   });
 
-const {storeTokenInLS} = useAuth()
+  const { storeTokenInLS } = useAuth();
 
   const handleChange = (e) => {
     console.log(e);
@@ -42,14 +44,14 @@ const {storeTokenInLS} = useAuth()
         // storetokenInLocalStorage(res_data.token);
         // eslint-disable-next-line no-undef
         storeTokenInLS(res_data.token);
-        alert("login successfully");
+        toast("login successfully");
         setUser({
           name: "",
           password: "",
         });
         navigate("/");
       } else {
-        alert("login unsuccessfull");
+        toast("login unsuccessfull");
       }
       console.log();
     } catch (error) {
@@ -87,10 +89,6 @@ const {storeTokenInLS} = useAuth()
           <button className="login-button" id="login-button" type="submit">
             Login
           </button>
-          <div className="singup-section">
-            <p>New user </p>
-            <a href="Signup">SignUp</a>
-          </div>
         </form>
       </div>
     </>

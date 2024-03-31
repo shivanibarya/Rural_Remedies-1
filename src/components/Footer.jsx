@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './footer.css';
 import Facebook from "../assets/FB.png";
 import Insta from "../assets/insta.png";

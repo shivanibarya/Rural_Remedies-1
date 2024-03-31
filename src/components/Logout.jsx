@@ -1,16 +1,18 @@
 import { useEffect } from "react";
-import { Navigate } from "react-router-dom";
+// eslint-disable-next-line no-unused-vars
+import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 
 const Logout = () => {
+  const navigate = useNavigate();
   const { logoutUser } = useAuth();
 
   useEffect(() => {
-    // Call the logout function when the component mounts
     logoutUser();
-  }, [logoutUser]); // Include navigate in the dependency array to ensure it's updated correctly
+    navigate('/Home')
+  }, [logoutUser, navigate]);
 
-  return <Navigate to="/login" />; // Return null since this component doesn't render anything
+  return null; // Return null since this component doesn't render anything
 };
 
 export default Logout;
