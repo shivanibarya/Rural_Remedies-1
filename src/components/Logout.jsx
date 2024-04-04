@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 // eslint-disable-next-line no-unused-vars
-import { Navigate, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 
 const Logout = () => {
@@ -9,7 +9,7 @@ const Logout = () => {
 
   useEffect(() => {
     logoutUser();
-    navigate('/Home')
+    navigate("/Signup");
   }, [logoutUser, navigate]);
 
   return null; // Return null since this component doesn't render anything

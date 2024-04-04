@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
+
 
 const RegistrationForm = () => {
   const [User, setUser] = useState({
@@ -76,9 +78,10 @@ const RegistrationForm = () => {
           isDoctor: false,
           speciality: "",
         });
+        toast.success("you are successfully registered")
         navigate("/"); //submit hone ke baad yaha navigate ho gaya
       } else {
-        alert("not a valid registration");
+        toast.error("not a valid registration");
       }
     } catch (error) {
       console.log("register", error);

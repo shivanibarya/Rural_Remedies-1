@@ -10,7 +10,7 @@ function Nav() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-dark">
+      <nav className="navbar navbar-expand-lg nav-bg">
         <div className="container-fluid">
           <img className="logo" src="src/assets/logo.webp" alt="Logo" />
           <h2 className="Nav-title">Remedies</h2>
@@ -33,26 +33,30 @@ function Nav() {
                   aria-current="page"
                   to="/"
                 >
-                  Home
-                  {/* <p className="nav-sty"></p> */}
+                  HOME
                 </Link>
               </li>
 
               <li className="nav-item">
                 <Link className="nav-link text-primary" to="/about">
-                  About
+                  ABOUT
                 </Link>
               </li>
 
               <li className="nav-item">
                 <Link className="nav-link text-primary" to="/remedies">
-                  View Remedies
+                  VIEW REMEDIES
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link text-primary" to="/add-category">
+                  ADD-REMEDIES
                 </Link>
               </li>
 
               <li className="nav-item">
                 <Link className="nav-link text-primary" to="/contact">
-                  Contact Us
+                  CONTACT-US
                 </Link>
               </li>
             </ul>
@@ -64,20 +68,28 @@ function Nav() {
                 aria-label="Search"
               />
               <button
-                className="btn btn-outline-success search-btn"
+                className="btn btn-outline-success search-btn "
                 type="submit"
               >
-                Search
+                SEARCH
               </button>
 
               {isLoggedIn ? (
-                <button
-                  className="mx-2 h-25"
-                  type="button"
-                  onClick={handleLogout} // Add onClick handler for logout button
-                >
-                  Logout
-                </button>
+                <>
+                  <button
+                    className="mx-2 h-25 btn  btn-outline-success search-btn"
+                    type="button"
+                    onClick={handleLogout} // Add onClick handler for logout button
+                  >
+                    LOGOUT
+                  </button>
+                  <Link
+                    className="mx-2 h-25 btn  btn-outline-success search-btn"
+                    to="/profile"
+                  >
+                    Profile
+                  </Link>
+                </>
               ) : (
                 <>
                   <p className="mx-2 my-0 " type="button">
@@ -85,12 +97,12 @@ function Nav() {
                       className="text-decoration-none hover:white d-flex "
                       to="/login"
                     >
-                      Login
+                      LOGIN
                     </Link>
                   </p>
-                  <p className=" mx-2 my-0 " type="button">
-                    <Link className="text-decoration-none" to="/signup">
-                      Sign-Up
+                  <p className=" ml-4 my-0 " type="button">
+                    <Link className="text-decoration-none" to="/Signup">
+                      SIGNUP
                     </Link>
                   </p>
                 </>
