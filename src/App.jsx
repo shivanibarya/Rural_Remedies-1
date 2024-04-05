@@ -17,7 +17,9 @@ import Footer from "./components/Footer";
 import Error from "./components/Error";
 import Login from "./components/Login-1";
 import Logout from "./components/Logout";
+import AddRemedy from "./components/AddRemedy";
 
+import Profile from "./components/Profile"
 
 function App() {
   
@@ -29,13 +31,15 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/Home" />} />
           <Route path="/Home" element={<Home />} />
+          <Route path="/add-category" element={<AddRemedy />} />
           <Route path="/About" element={<About />} />
           <Route path="/Remedies" element={<Remedies />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Signup" element={<Signup />} /> {/* Correct */}
           <Route path="/Login" element={<Login />} /> {/* Corrected */}
           <Route path="/Logout" element={<Logout />} /> {/* Corrected */}
-          <Route path="*" element={<Error />} /> {/* Corrected */}
+          <Route path="*" element={<Error />} /> 
+          <Route path="/profile" element={<Profile />} /> 
         </Routes>
 
         <Footer />

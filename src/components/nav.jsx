@@ -27,35 +27,38 @@ function Nav() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-
               <li className="nav-item ">
-                <Link className="nav-link nav-link1 text-primary active d-block" aria-current="page" to="/">
-                  Home
-                  {/* <p className="nav-sty"></p> */}
-                </Link> 
-               
-              </li>
-            
-              <li className="nav-item">
-                <Link className="nav-link text-primary" to="/about">
-                  About
+                <Link
+                  className="nav-link nav-link1 text-primary active d-block"
+                  aria-current="page"
+                  to="/"
+                >
+                  HOME
                 </Link>
               </li>
 
+              <li className="nav-item">
+                <Link className="nav-link text-primary" to="/about">
+                  ABOUT
+                </Link>
+              </li>
 
               <li className="nav-item">
                 <Link className="nav-link text-primary" to="/remedies">
-                  View Remedies
+                  VIEW REMEDIES
                 </Link>
               </li>
-
+              <li className="nav-item">
+                <Link className="nav-link text-primary" to="/add-category">
+                  ADD-REMEDIES
+                </Link>
+              </li>
 
               <li className="nav-item">
                 <Link className="nav-link text-primary" to="/contact">
-                  Contact Us
+                  CONTACT-US
                 </Link>
               </li>
-              
             </ul>
             <form className="d-flex search align-items-center" role="search">
               <input
@@ -64,28 +67,42 @@ function Nav() {
                 placeholder="Search Remedies"
                 aria-label="Search"
               />
-              <button className="btn btn-outline-success search-btn" type="submit">
-                Search
+              <button
+                className="btn btn-outline-success search-btn "
+                type="submit"
+              >
+                SEARCH
               </button>
 
               {isLoggedIn ? (
-                <button
-                  className="mx-2 h-25 "
-                  type="button"
-                  onClick={handleLogout} // Add onClick handler for logout button
-                >
-                  Logout
-                </button>
+                <>
+                  <button
+                    className="mx-2 h-25 btn  btn-outline-success search-btn"
+                    type="button"
+                    onClick={handleLogout} // Add onClick handler for logout button
+                  >
+                    LOGOUT
+                  </button>
+                  <Link
+                    className="mx-2 h-25 btn  btn-outline-success search-btn"
+                    to="/profile"
+                  >
+                    Profile
+                  </Link>
+                </>
               ) : (
                 <>
                   <p className="mx-2 my-0 " type="button">
-                    <Link className="text-decoration-none hover:white d-flex " to="/login">
-                      Login
+                    <Link
+                      className="text-decoration-none hover:white d-flex "
+                      to="/login"
+                    >
+                      LOGIN
                     </Link>
                   </p>
-                  <p className=" mx-2 my-0 " type="button">
-                    <Link className="text-decoration-none" to="/signup">
-                      Sign-Up
+                  <p className=" ml-4 my-0 " type="button">
+                    <Link className="text-decoration-none" to="/Signup">
+                      SIGNUP
                     </Link>
                   </p>
                 </>

@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from "../store/auth";
 
 const Login = () => {
   const [user, setUser] = useState({
-    name: "",
+    email: "",
     password: "",
   });
 
-const {storeTokenInLS} = useAuth()
+  const { storeTokenInLS } = useAuth();
 
   const handleChange = (e) => {
     console.log(e);
@@ -39,17 +41,18 @@ const {storeTokenInLS} = useAuth()
       console.log("loginform", response);
       if (response.ok) {
         const res_data = await response.json();
+        console.log("res_data" + JSON.stringify(res_data));
         // storetokenInLocalStorage(res_data.token);
         // eslint-disable-next-line no-undef
         storeTokenInLS(res_data.token);
-        alert("login successfully");
+        toast.success("login successfully");
         setUser({
-          name: "",
+          email: "",
           password: "",
         });
         navigate("/");
       } else {
-        alert("login unsuccessfull");
+        toast.error("login unsuccessfull");
       }
       console.log();
     } catch (error) {
@@ -65,12 +68,12 @@ const {storeTokenInLS} = useAuth()
             <div>Login</div>
           </div>
           <input
-            type="text"
+            type="email"
             className="login-input"
-            name="name"
+            name="email"
             placeholder="enter your name"
             id="username"
-            value={user.name}
+            value={user.email}
             onChange={handleChange}
           />
           <input
@@ -80,17 +83,13 @@ const {storeTokenInLS} = useAuth()
             placeholder="password (Min-8, Max-15)"
             id="password"
             maxLength={10}
-            minLength={5}
+            minLength={3}
             value={user.password}
             onChange={handleChange}
           />
           <button className="login-button" id="login-button" type="submit">
             Login
           </button>
-          <div className="singup-section">
-            <p>New user </p>
-            <a href="Signup">SignUp</a>
-          </div>
         </form>
       </div>
     </>

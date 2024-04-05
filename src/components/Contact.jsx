@@ -1,11 +1,76 @@
+import { useState, useEffect } from "react";
+import { useAuth } from "../store/auth";
 
+const defaultContact = {
+  name: "",
+  email: "",
+  message: "",
+};
 
 function Contact() {
+  const [contactData, setContactData] = useState(defaultContact);
+
+  const [userData, setUserData] = useState(false); // Set to false initially
+
+  const { user } = useAuth();
+
+  useEffect(() => {
+    if (user && !userData) {
+      // Check if user exists and userData flag is false
+      setContactData({
+        name: user.name,
+        email: user.email,
+        message: "",
+      });
+      setUserData(true); // Set userData flag to true after setting contactData
+    }
+  }, [user, userData]); // Add user and userData as dependencies
+
+  const handleInput = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    // Update the contactData state with the new input value
+    setContactData({
+      ...contactData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    try {
+      const response = await fetch("http://localhost:3000/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // Fix the typo here
+        },
+        body: JSON.stringify(contactData), // Send contactData instead of user
+      });
+  
+      if (response.ok) {
+        setContactData(defaultContact);
+        const data = await response.json(); // await response.json() to get the response data
+        console.log(data);
+        alert("Contact submitted");
+      } else {
+        // Handle non-200 status codes
+        const errorMessage = await response.text();
+        throw new Error(errorMessage);
+      }
+    } catch (error) {
+      console.error("Error submitting contact:", error);
+      alert("Error submitting contact");
+    }
+  };
+  
+
   return (
     <>
       <div className="main">
         <div className="Log">
-          <form action="/" method="post" className="login-container">
+          <form className="login-container" onSubmit={handleSubmit}>
             <div className="login-header">
               <div>Contact-us</div>
             </div>
@@ -14,18 +79,27 @@ function Contact() {
               className="login-input"
               name="name"
               id="username"
+              onChange={handleInput}
+              value={contactData.name}
             />
             <input
-              type="password"
+              type="email"
               className="login-input"
-              name="password"
-              id="password"
-              maxLength={10}
-              minLength={5}
+              name="email"
+              id="email"
+              onChange={handleInput}
+              value={contactData.email}
             />
-            <textarea name="" id="" cols="42" rows="2"></textarea>
+            <textarea
+              name="message"
+              id="message"
+              cols="42"
+              rows="2"
+              value={contactData.message}
+              onChange={handleInput}
+            ></textarea>
             <button className="login-button" id="login-button" type="submit">
-              Login
+              Submit
             </button>
           </form>
         </div>
